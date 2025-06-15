@@ -5,7 +5,7 @@ import requests
 def download_file(url, file_path):
     try:
         response = requests.get(url, stream=True)
-        response.raise_for_status()  # Raise an exception for bad status codes
+        response.raise_for_status()  
         with open(file_path, 'wb') as file:
             for chunk in response.iter_content(chunk_size=8192):
                 file.write(chunk)
